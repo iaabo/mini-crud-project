@@ -8,6 +8,7 @@ const User = (props) => {
       <p> Username:{props.username}</p>
       <p>Company: {props.company && props.company.name}</p>
       <p>City: {props.address && props.address.city}</p>
+      <button onClick={() => props.handleRemove(props.id)}>Remove User</button>
     </div>
   );
 };

@@ -17,13 +17,18 @@ class UserList extends React.Component {
       .then((response) => this.setState({ users: response.data }));
   };
 
+  handleRemove = (id) => {
+    const newUserList = this.state.users.filter((user) => user.id !== id);
+    this.setState({ users: newUserList });
+  };
+
   render() {
     return (
       <div>
         <h1 className="title">Mini Crud Project - Wild Code School 2020</h1>
 
         {this.state.users.map((user) => (
-          <User {...user} key={user.id} />
+          <User {...user} key={user.id} handleRemove={this.handleRemove} />
         ))}
       </div>
     );
